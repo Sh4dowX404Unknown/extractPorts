@@ -1,5 +1,5 @@
 #!/bin/bash
-
+                                                          
 # Colors Code
 RED="\e[31m"
 GREEN="\e[32m"
@@ -12,6 +12,17 @@ if [ "$#" -eq 0 ]; then
 	echo -e "\n${YELLOW}[-] Usage: bash extractPorts file${END_COLOR}"
 	exit 1
 fi
+
+# Banner
+cat << "EOF"
++--------------------------------------------------+
+|          _               _   ___         _       |
+|  _____ _| |_ _ _ __ _ __| |_| _ \___ _ _| |_ ___ |
+| / -_) \ /  _| '_/ _` / _|  _|  _/ _ \ '_|  _(_-< |
+| \___/_\_\\__|_| \__,_\__|\__|_| \___/_|  \__/__/ | v.1.0		 by Sh4dowX
+|                                                  |
++--------------------------------------------------+
+EOF
 
 # Extracting information
 ports="$(cat $1 | grep -oP '\d{1,5}/' | awk '{print$1}' FS='/' | xargs | tr ' ' ',')"
